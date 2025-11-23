@@ -1,0 +1,99 @@
+##############################
+# .NET / C#
+##############################
+
+# Build results
+bin/
+obj/
+out/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Runtime artifacts
+*.db
+*.db-shm
+*.db-wal
+
+# VS Code launch.json tasks
+.vscode/
+
+##############################
+# Rider / JetBrains IDE
+##############################
+
+.idea/
+*.sln.iml
+
+# Rider caches
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+.idea/**/httpRequests
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+
+##############################
+# macOS specific
+##############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Spotlight and Trashes
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+##############################
+# Logs & temp
+##############################
+
+*.log
+*.tlog
+*.cache
+*.tmp
+*.temp
+*.pid
+*.lock
+
+##############################
+# Docker
+##############################
+
+docker-compose.override.yml
+.env
+.env.local
+
+##############################
+# Certificates & Keys
+##############################
+
+*.pfx
+*.p12
+*.key
+*.crt
+*.pem
+
+##############################
+# Others
+##############################
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+*.orig
