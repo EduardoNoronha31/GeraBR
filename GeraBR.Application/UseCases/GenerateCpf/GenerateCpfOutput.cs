@@ -1,6 +1,6 @@
 namespace GeraBR.Application.UseCases.GenerateCpf;
 
-public class GenerateCpfOutput
-{
-    
-}
+public record GenerateCpfOutput(
+    string Value,
+    string FormattedValue
+);

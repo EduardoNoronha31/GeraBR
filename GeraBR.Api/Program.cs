@@ -1,6 +1,8 @@
 using System.Reflection;
 using Swashbuckle.AspNetCore.Annotations;
 using GeraBR.Application.UseCases.ValidateCpf;
+using GeraBR.Application.UseCases.GenerateCpf;
+using GeraBR.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => { c.EnableAnnotations(); });
 
 builder.Services.AddScoped<ValidateCpfUseCase>();
+builder.Services.AddTransient<ICpfGeneratorService, CpfGeneratorService>();
+builder.Services.AddScoped<GenerateCpfUseCase>();
 
 var app = builder.Build();
 

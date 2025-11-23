@@ -1,0 +1,5 @@
+<Project>
+    <ItemGroup>
+        <PackageReference Remove="Microsoft.Extensions.ApiDescription.Server"/>
+    </ItemGroup>
+</Project>

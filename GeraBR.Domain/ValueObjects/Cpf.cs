@@ -14,6 +14,11 @@ public class Cpf
         Digits = normalized;
     }
 
+    public string Format()
+    {
+        return $"{Digits[..3]}.{Digits[3..6]}.{Digits[6..9]}-{Digits[9..]}";
+    }
+
     private static int ToDigit(char c) => c - '0';
 
     private static string Normalize(string value)

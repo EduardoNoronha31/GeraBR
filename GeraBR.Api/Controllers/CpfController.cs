@@ -1,5 +1,6 @@
 using GeraBR.Application.UseCases.ValidateCpf;
 using GeraBR.Api.Requests;
+using GeraBR.Application.UseCases.GenerateCpf;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -10,10 +11,12 @@ namespace GeraBR.Api.Controllers;
 public class CpfController : ControllerBase
 {
     private readonly ValidateCpfUseCase _validateCpfUseCase;
+    private readonly GenerateCpfUseCase _generateCpfUseCase;
 
-    public CpfController(ValidateCpfUseCase validateCpfUseCase)
+    public CpfController(ValidateCpfUseCase validateCpfUseCase, GenerateCpfUseCase generateCpfUseCase)
     {
         _validateCpfUseCase = validateCpfUseCase;
+        _generateCpfUseCase = generateCpfUseCase;
     }
 
     [SwaggerOperation(
@@ -26,6 +29,20 @@ public class CpfController : ControllerBase
     public IActionResult Validate([FromBody] ValidateCpfRequest request)
     {
         var result = _validateCpfUseCase.Execute(request.Cpf);
+        return Ok(result);
+    }
+
+
+    [SwaggerOperation(
+        Summary = "It generates a valid CPF",
+        Description = "It is only for testing purposes."
+    )]
+    [HttpPost("generate")]
+    [ProducesResponseType(typeof(GenerateCpfOutput), 200)]
+    [ProducesResponseType(400)]
+    public IActionResult Generate()
+    {
+        var result = _generateCpfUseCase.Execute();
         return Ok(result);
     }
 }
