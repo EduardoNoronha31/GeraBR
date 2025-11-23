@@ -107,6 +107,35 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "GeraBR.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "GeraBR.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GeraBR.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GeraBR.Application.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "GeraBR.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/GeraBR.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GeraBR.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -473,10 +502,21 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "GeraBR.Application/1.0.0": {
+      "type": "project",
+      "path": "../GeraBR.Application/GeraBR.Application.csproj",
+      "msbuildProject": "../GeraBR.Application/GeraBR.Application.csproj"
+    },
+    "GeraBR.Domain/1.0.0": {
+      "type": "project",
+      "path": "../GeraBR.Domain/GeraBR.Domain.csproj",
+      "msbuildProject": "../GeraBR.Domain/GeraBR.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "GeraBR.Application >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.22",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -505,7 +545,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/eduardorosa/Documents/Private/Estudos/GeraBR/GeraBR.Application/GeraBR.Application.csproj": {
+              "projectPath": "/Users/eduardorosa/Documents/Private/Estudos/GeraBR/GeraBR.Application/GeraBR.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
