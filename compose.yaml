@@ -1,0 +1,7 @@
+﻿services:
+  gerabr.api:
+    image: gerabr.api
+    build:
+      context: .
+      dockerfile: GeraBR.Api/Dockerfile
+
