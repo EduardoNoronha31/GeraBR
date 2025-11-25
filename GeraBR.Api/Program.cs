@@ -1,10 +1,14 @@
 using System.Reflection;
+using System.Threading.RateLimiting;
 using Swashbuckle.AspNetCore.Annotations;
 using GeraBR.Application.UseCases.ValidateCpf;
 using GeraBR.Application.UseCases.GenerateCpf;
 using GeraBR.Domain.Services;
+using GeraBR.Api.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCustomRateLimiting();
 
 builder.Services.AddControllers();
 
@@ -19,6 +23,7 @@ builder.Services.AddScoped<GenerateCpfUseCase>();
 
 var app = builder.Build();
 
+app.UseRateLimiter();
 app.MapControllers();
 
 // Configure the HTTP request pipeline.

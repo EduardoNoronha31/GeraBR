@@ -2,6 +2,7 @@ using GeraBR.Application.UseCases.ValidateCpf;
 using GeraBR.Api.Requests;
 using GeraBR.Application.UseCases.GenerateCpf;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace GeraBR.Api.Controllers;
@@ -24,8 +25,10 @@ public class CpfController : ControllerBase
         Description = "It receives a CPF (with or without a mask) and returns whether it is valid or not."
     )]
     [HttpPost("validate")]
+    [EnableRateLimiting("QueryPolicy")]
     [ProducesResponseType(typeof(ValidateCpfOutput), 200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(429)]
     public IActionResult Validate([FromBody] ValidateCpfRequest request)
     {
         var result = _validateCpfUseCase.Execute(request.Cpf);
@@ -38,8 +41,10 @@ public class CpfController : ControllerBase
         Description = "It is only for testing purposes."
     )]
     [HttpPost("generate")]
+    [EnableRateLimiting("CommandPolicy")]
     [ProducesResponseType(typeof(GenerateCpfOutput), 200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(429)]
     public IActionResult Generate()
     {
         var result = _generateCpfUseCase.Execute();
